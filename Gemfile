@@ -45,10 +45,19 @@ gem "thruster", require: false
 # using Devise as authentication solution
 gem "devise"
 
+# using CLoudinary for image storage
+gem "cloudinary"
+
+# using Simple Form for form building
+gem "simple_form"
+
+# using bootstrap for styling
+gem "bootstrap", "~> 5.3.1"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
- 
+
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -60,6 +69,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "htmlbeautifier"
 end
 
 group :test do
