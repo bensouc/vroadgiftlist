@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_04_133306) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_04_164536) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,6 +53,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_04_133306) do
     t.boolean "received"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_gifts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,23 +77,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_04_133306) do
     t.integer "gift_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_wishes_on_event_id"
     t.index ["gift_id"], name: "index_wishes_on_gift_id"
     t.index ["wishlist_id"], name: "index_wishes_on_wishlist_id"
   end
 
   create_table "wishlists", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_wishlists_on_event_id"
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "gifts", "users"
   add_foreign_key "wishes", "gifts"
   add_foreign_key "wishes", "wishlists"
-  add_foreign_key "wishlists", "events"
   add_foreign_key "wishlists", "users"
 end

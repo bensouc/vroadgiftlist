@@ -1,0 +1,19 @@
+<div class="main pt-3 px-3">
+	<div class='my-3 d-flex align-items-baseline w-100 justify-content-center fs-1 fw-bold gap-2'>
+		<div class=""><%= I18n.t "gift.index.title" %></div>
+		<i class="fa-solid fa-share-nodes ms-2"></i>
+	</div>
+	<% @gifts.each do |gift| %>
+		<div class="card rounded px-3 py-2 mb-3 bg-dark">
+			<h3><%= gift.name %>			<%= link_to   gift.url do %>
+					<i class="fa-solid fa-link"></i>
+				<% end %>
+			</h3>
+			<p><i class="fa-solid fa-coins text-warning"></i> <%= number_to_currency(gift.price, unit: "€", separator: ",", delimiter: " ") %></p>
+			<p>Status: <%= gift.received? ? (I18n.t "gift.purchased") : (I18n.t "gift.not_purchased")%></p>
+		</div>
+	<% end %>
+</div>
+<%= link_to  new_gift_path, class: 'add-central-btn' do %>
+	<i class="fa-solid fa-plus"></i>
+<% end %>
