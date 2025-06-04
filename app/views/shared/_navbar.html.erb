@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white  fixed-top vw-100 ">
 	<div class="container-fluid">
 		<% if user_signed_in? %>
 			<%= cl_image_tag current_user.avatar.key, width:50, class:'rounded-circle' %>
@@ -15,11 +15,15 @@
 					<a class="nav-link active text-white" aria-current="page" href="<%= root_path %>">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-white" href="<%= "#" %>">Gigs</a>
+					<a class="nav-link text-white" href="<%= wishlists_path %>">Wishlist</a>
 				</li>
 				<% if user_signed_in? %>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="<%= "#" %>">New Gig</a>
+						<%= link_to 'Déconnexion', destroy_user_session_path, data: {turbo_method: :delete} %>
+					</li>
+				<% else %>
+					<li class="nav-item">
+            <%= link_to 'Connexion', new_user_session_path, class:'nav-link text-white' %>
 					</li>
 				<% end %>
 			</ul>

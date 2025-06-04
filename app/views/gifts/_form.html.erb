@@ -1,0 +1,30 @@
+<%= simple_form_for gift do |f| %>
+	<%= f.input :wishlist_id, as: :hidden, input_html: { value: wishlist.id } %>
+	<div class="d-flex justify-content-between w-100">
+		<%= f.input :name, label: I18n.t("gift.name"), required: true,
+    input_html: {
+      placeholder: I18n.t("gift.name_placeholder")
+    } %>
+		<%= f.input :price,
+      label: t("gift.price"),
+      input_html: {
+        placeholder: I18n.t("gift.price_placeholder"),
+        maxlength: 6,
+        class: "form-control",
+        style: "width: 10ch;"
+      } %>
+	</div>
+	<%= f.input :url, label: I18n.t("gift.url_label"), input_html: {
+    placeholder: I18n.t("gift.url_placeholder")
+  } %>
+	<%= f.input :photo,
+  as: :file,label: I18n.t("gift.add_photo"),
+
+  input_html: {
+    accept: "image/*",
+    capture: "environment"
+  } %>
+	<%= button_tag type: :submit, class: "btn btn-success w-100 fw-bold fs-3" do %>
+		<%= I18n.t "gift.save_gift" %>
+	<% end %>
+<% end %>
