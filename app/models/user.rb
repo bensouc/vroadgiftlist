@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # associations
   has_one_attached :avatar
-  has_one :wishlist, dependent: :destroy
+  has_many :wishlists, dependent: :destroy
   has_many :gifts, dependent: :destroy
 
   # validations

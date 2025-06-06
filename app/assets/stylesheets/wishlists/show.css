@@ -1,0 +1,6 @@
+.wishlist-title{
+  position: sticky;
+    top: 66px;
+    background: white;
+    z-index: 1;
+}

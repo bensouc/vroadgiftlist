@@ -1,4 +1,8 @@
 fr:
+  application:
+    title: "Partage un voeu"
+    tagline: "Marre des doublons et des cadeaux ratés ?"
+    description: "Avec GiftCrew, crée ta liste de souhaits, partage-la avec tes proches, et laisse-les choisir ce qu’ils veulent t’offrir — sans se marcher dessus, même s’ils préparent une surprise à Noël et ton anniversaire."
   errors:
     messages:
       blank: "ne peut pas être vide"
@@ -7,10 +11,27 @@ fr:
       too_short: "doit contenir au moins %{count} caractères"
       too_long: "ne peut pas dépasser %{count} caractères"
       not_a_number: "doit être un nombre"
+  navigation:
+    home: "Accueil"
+    gifts: "Cadeaux"
+    gift: "Cadeau"
+    wishlists: "Listes de souhaits"
+    new_wishlist: "Nouvelle liste de souhaits"
+    new_gift: "Nouveau cadeau"
+    edit_gift: "Modifier le cadeau"
+    login: "Connexion"
+    logout: "Déconnexion"
+    register: "Inscription"
+    profile: "Profil"
+    settings: "Paramètres"
+    about: "À propos"
+    contact: "Contact"
+    privacy_policy: "Politique de confidentialité"
+    terms_of_service: "Conditions d'utilisation"
   gift:
     name: "Nom du cadeau"
     price: "Prix"
-    purchased: "Déjà Offert"
+    purchased: "Offert"
     not_purchased: "Pas encore offert"
     add_a_new_gift: ""
     name_placeholder: "Entrez le nom du cadeau"

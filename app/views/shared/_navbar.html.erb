@@ -3,23 +3,21 @@
 		<% if user_signed_in? %>
 			<%= cl_image_tag current_user.avatar.key, width:50, class:'rounded-circle' %>
 		<% end %>
-		<h1>
-			<a class="navbar-brand text-white" href="<%= root_path %>">My Gigt List</a>
-		</h1>
+			<a class="navbar-brand text-white ms-md-3" href="<%= root_path %>"><%= I18n.t('application.title') %></a>
 		<button class="navbar-toggler rounded-pill bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon border-white"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 				<li class="nav-item">
-					<a class="nav-link active text-white" aria-current="page" href="<%= root_path %>">Home</a>
+					<a class="nav-link active text-white" aria-current="page" href="<%= root_path %>"><%= I18n.t('navigation.home') %></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-white" href="<%= wishlists_path %>">Wishlist</a>
+					<a class="nav-link text-white" href="<%= wishlists_path %>"><%= I18n.t('navigation.wishlists') %></a>
 				</li>
 				<% if user_signed_in? %>
 					<li class="nav-item">
-						<%= link_to 'Déconnexion', destroy_user_session_path, data: {turbo_method: :delete} %>
+						<%= link_to 'Déconnexion', destroy_user_session_path,class:'nav-link text-white', data: {turbo_method: :delete} %>
 					</li>
 				<% else %>
 					<li class="nav-item">

@@ -1,7 +1,15 @@
 body{
-  background-color: black;
+  background-color: white;
+  color: rgb(123, 171, 165);
 }
 .main{
   margin-top: 66px;
   min-height: calc(100vh - 66px);
+}
+a{
+  color: rgb(123, 171, 165);
+  text-decoration: none;
+}
+h1, h2, h3{
+  color: rgb(84, 118, 114);
 }

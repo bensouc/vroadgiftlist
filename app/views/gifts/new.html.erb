@@ -1,4 +1,6 @@
-<div class="main px-3 d-flex flex-column justify-content-center">
-  <h1 class='text-center my-3'> <i class="fa-solid fa-gift"></i> <%= I18n.t "gift.add_a_new_gift" %> </h1>
-  <%= render 'form', gift: @gift,wishlist: @wishlist %>
-</div>
+<%= turbo_frame_tag :wishlist do %>
+	<div class="main px-3 d-flex flex-column justify-content-center">
+		<h1 class='text-center my-3'> <i class="fa-solid fa-gift"></i> <%= I18n.t "gift.add_a_new_gift" %> </h1>
+		<%= render 'form', gift: @gift,wishlist: @wishlist %>
+	</div>
+<% end %>

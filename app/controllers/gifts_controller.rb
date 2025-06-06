@@ -10,7 +10,7 @@ class GiftsController < ApplicationController
     @wishlist = Wishlist.find(params[:gift][:wishlist_id])
     if @gift.save
       @gift.link_to_wishlist(@wishlist)
-      redirect_to wishlists_path, notice: 'Gift was successfully created.'
+      redirect_to wishlist_path(@wishlist), notice: 'Gift was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,7 +19,11 @@ class GiftsController < ApplicationController
   private
 
   def set_wishlist
-    @wishlist = current_user.wishlist
+    if params[:wishlist_id].present?
+      @wishlist = Wishlist.find(params[:wishlist_id])
+    else
+      @wishlist = current_user.wishlists.first
+    end
   end
 
   def gift_params
