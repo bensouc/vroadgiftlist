@@ -15,6 +15,27 @@ class Gift < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_blank: true
   validates :url, format: { with: URI::regexp(%w[http https]), message: "must be a valid URL" }, allow_blank: true
 
+  # Tags
+  TAGS = [
+  'tech',
+  'fashion',
+  'hobbies',
+  'home',
+  'video_games',
+  'books',
+  'comics',
+  'beauty',
+  'music',
+  'sports',
+  'travel',
+  'experience',
+  'food',
+  'decor',
+  'blu_ray_4k',
+  'blu_ray',
+  'dvd'
+].freeze
+
   # Instance methods
   def link_to_wishlist(wishlist)
     # Create a new wish that links this gift to the specified wishlist

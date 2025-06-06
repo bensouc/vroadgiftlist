@@ -32,22 +32,3 @@ fr:
     contact: "Contact"
     privacy_policy: "Politique de confidentialité"
     terms_of_service: "Conditions d'utilisation"
-
-  gift:
-    name: "Nom du cadeau"
-    price: "Prix"
-    purchased: "Offert"
-    not_purchased: "Pas encore offert"
-    add_a_new_gift: ""
-    name_placeholder: "Entrez le nom du cadeau"
-    price_placeholder: "15,00€"
-    url_label: "Lien vers site web du cadeau"
-    url_placeholder: "https://example.com/cadeau"
-    add_photo: "Ajouter une photo"
-    save_gift: "Ajouter à votre liste"
-    index:
-      title: "Liste de cadeaux"
-      description: "Sélectionnez un cadeau à offrir"
-      purchased_gifts: "Cadeaux déjà offerts"
-      not_purchased_gifts: "Cadeaux non offerts"
-      no_gifts: "Aucun cadeau trouvé"
