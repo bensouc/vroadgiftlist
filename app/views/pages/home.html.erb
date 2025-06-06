@@ -1,3 +1,32 @@
-<div class="container h-100">
+<section class=" hero">
+<h1><i class="fa-solid fa-gifts"></i><%= I18n.t('application.title').upcase %>
+</h1>
+<h2 class="tagline"><%= I18n.t('application.tagline') %></h2>
+<p class="description">
+  <%= I18n.t('application.description').html_safe %>
+</p>
+<a href="#" class="btn btn-main btn-lg mt-3">Démarrer</a>
+</section>
+<section class="features container text-center">
+	<div class="row">
+		<div class="col-12 col-md-4 mb-4">
+			<div class="feature-icon mb-2">🎁</div>
+			<h5>Liste de souhaits</h5>
+			<p>Crée une liste unique pour chaque événement : anniversaire, Noël, mariage...</p>
+		</div>
+		<div class="col-12 col-md-4 mb-4">
+			<div class="feature-icon mb-2">🤝</div>
+			<h5>Partage facile</h5>
+			<p>Envoie le lien à tes proches pour qu'ils voient tes envies et choisissent quoi offrir.</p>
+		</div>
+		<div class="col-12 col-md-4 mb-4">
+			<div class="feature-icon mb-2">✅</div>
+			<h5>Pas de doublons</h5>
+			<p>Les cadeaux peuvent être réservés, pour éviter les mauvaises surprises.</p>
+		</div>
+	</div>
+</section>
 
-</div>
+<footer>
+	<p>&copy; 2025 <%= link_to 'VroadStudio', "www.vroadstudio.fr" %>. Tous droits réservés.</p>
+</footer>

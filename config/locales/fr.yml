@@ -1,8 +1,12 @@
 fr:
   application:
-    title: "Partage un voeu"
+    title: "partage"
+    description: "Créez et partagez vos listes de souhaits avec vos amis et votre famille."
     tagline: "Marre des doublons et des cadeaux ratés ?"
-    description: "Avec GiftCrew, crée ta liste de souhaits, partage-la avec tes proches, et laisse-les choisir ce qu’ils veulent t’offrir — sans se marcher dessus, même s’ils préparent une surprise à Noël et ton anniversaire."
+    description: "Avec <strong>Partage</strong>, crée ta <strong>liste de souhaits</strong>, partage-la avec tes <strong>proches</strong>, et laisse-les choisir ce qu’ils veulent t’offrir — sans se marcher dessus, même s’ils préparent une surprise à <strong>Noël</strong> et ton <strong>anniversaire</strong>."
+    link: "Lien"
+    share: "Partager"
+    search: "Rechercher"
   errors:
     messages:
       blank: "ne peut pas être vide"
@@ -28,6 +32,7 @@ fr:
     contact: "Contact"
     privacy_policy: "Politique de confidentialité"
     terms_of_service: "Conditions d'utilisation"
+
   gift:
     name: "Nom du cadeau"
     price: "Prix"

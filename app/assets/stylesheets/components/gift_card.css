@@ -1,0 +1,85 @@
+.gift-card {
+  border: none;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative;
+  color: white;
+}
+
+.gift-card .card-body {
+  background-color: rgba(0, 0, 0, 0.082);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.gift-card .btn {
+  background-color: var(--white);
+  color: white;
+}
+
+.gift-card .card-title {
+  text-shadow: 2px 2px 2px #ff5c70;
+}
+
+.gift-card .price {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.badges {
+  position: relative;
+  bottom: -1.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.badge-default {
+  /* left: 0rem; */
+  background-color: #b9d554;
+  color: white;
+}
+
+.badge-success {
+  background-color: #ff5c70;
+  color: white;
+}
+
+.shop-url {
+  text-shadow: 1px 1px 1px #ff5c70;
+}
+
+.offer-link {
+  width: 0;
+  height: 0;
+  color: #ff5c70;
+  position: absolute;
+  right: 4rem;
+  font-size: 3rem;
+  text-shadow: 0.5px 0.5px 1px #ffffff;
+}
+
+.offer-link:hover {
+  color: #f6818f;
+}
+
+@media (min-width: 576px) {
+  .gift-card {
+    height: 350px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .gift-card .card-body {
+    padding: 2rem 1.5rem;
+  }
+
+  .offer-link {
+    top: 1.5rem;
+  }
+}

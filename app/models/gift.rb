@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# Gift model represents a gift that can be added to a wishlist
 class Gift < ApplicationRecord
+  # Include URL helpers for generating URLs
+  include Rails.application.routes.url_helpers
+
   # Associations
-  # Assuming a user has many gifts, you might want to add this association
-  # Uncomment the line below if you have a User model and want to associate gifts with users
-  #
   belongs_to :user
   has_many :wishes, dependent: :destroy
   has_many :wishlists, through: :wishes
@@ -16,5 +19,21 @@ class Gift < ApplicationRecord
   def link_to_wishlist(wishlist)
     # Create a new wish that links this gift to the specified wishlist
     wishes.create(wishlist: wishlist, gift: self)
+  end
+
+  def price_to_s
+    if !price.blank?
+      price.to_s
+    else
+      "??"
+    end
+  end
+
+  def photo_url
+    if photo.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(photo, only_path: false)
+    else
+      ActionController::Base.helpers.image_path('defaults/no_photo.jpg')
+    end
   end
 end
