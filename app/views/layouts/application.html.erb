@@ -22,7 +22,7 @@
 	</head>
 	<body>
 		<%= render "shared/flashes" %>
-		<%= render "shared/navbar" %>
+		<%= render "shared/navbar" unless controller_name == "pages" && action_name =='home' %>
 
   		<%= yield %>
 

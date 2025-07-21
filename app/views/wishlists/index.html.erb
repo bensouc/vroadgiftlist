@@ -1,4 +1,0 @@
-<%= turbo_frame_tag :wishlist do %>
-	<% @wishlists.count == 1 %>
-	<%= render 'wishlists/wishlist', wihslist: @wishlist, gifts: @gifts.select{|gift| gift.wishlists.include?(@wishlists.first)}.uniq %>
-<% end %>

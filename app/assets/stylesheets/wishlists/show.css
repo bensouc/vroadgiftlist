@@ -1,6 +1,7 @@
-.wishlist-title{
+.event-title{
   position: sticky;
     top: 66px;
-    background: white;
+    background: var(--bg-main);
     z-index: 1;
+    padding: 1rem 0;
 }

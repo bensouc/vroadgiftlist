@@ -1,0 +1,20 @@
+<%= turbo_frame_tag :content do %>
+	<div class="main px-3">
+		<div class='d-flex align-items-baseline w-100 justify-content-center fs-1 fw-bold gap-2 event-title'>
+			<h1 class="shop-url"><%= I18n.t "gift.index.title" %></h1>
+			<i class="fa-solid fa-share-nodes ms-2 shop-url"></i>
+		</div>
+		<div class="container">
+			<div class="row g-0 g-md-4">
+				<% @gifts.each do |gift| %>
+					<div class="col-12 col-sm-6 col-lg-4">
+						<%= render gift %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<%= link_to  new_gift_path, class: 'add-central-btn' do %>
+		<i class="fa-solid fa-gift fs-1"></i>
+	<% end %>
+<% end %>

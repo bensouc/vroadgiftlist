@@ -1,0 +1,27 @@
+/* Variables CSS globales pour la palette de couleurs de l'app + Bootstrap */
+:root {
+  /* Couleurs principales */
+  --primary: #ff5c70;
+  --secondary: #f86879;
+  --success: #b9d554;
+  --info: #7baba5;
+  --warning: #ffd166;
+  --danger: #e63946;
+  --light: #fff;
+  --dark: #222;
+
+  /* Couleurs de texte */
+  --text-main: #547672;
+  --text-light: #fff;
+  --text-muted: #7baaa5;
+
+  /* Couleurs de fond */
+  --bg-main: #fff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: #f4f4f4;
+
+  /* Autres */
+  --border-radius: 0.5rem;
+  --light-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+}

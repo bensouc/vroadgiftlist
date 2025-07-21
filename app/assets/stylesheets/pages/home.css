@@ -1,0 +1,73 @@
+.hero {
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #ff5c70, #f86879);
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  
+}
+
+.hero .tagline {
+  color: #fff;
+  
+
+}
+
+.hero .description {
+  text-align: justify;
+}
+
+
+.btn-main {
+  background-color: white;
+  color: #ff5c70;
+  border: none;
+}
+
+.features {
+  padding: 1rem 1rem;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #ff5c70;
+}
+
+footer {
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+  background-color: #fff;
+  color: #777;
+}
+@media (min-width: 576px) {
+  .hero{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    padding-top: 10vh;
+
+  }
+  .tagline, .description{
+    padding-left: 15%;
+    padding-right: 20%;
+    text-align: start;
+  }
+  .btn-main {
+    margin-left: 15%;
+    width: fit-content;
+  }
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+  }
+}

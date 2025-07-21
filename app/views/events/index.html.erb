@@ -1,0 +1,13 @@
+<%= turbo_frame_tag :content do %>
+	<% if @events.empty? %>
+		<div class="main px-3">
+			🦄
+			Vous n'avez pas encore d'évenement.
+		</div>
+	<% else %>
+		<%= render 'events/events', events: @events, gifts: @gifts %>
+	<% end %>
+	<%= link_to new_event_path, class: 'add-central-btn' do %>
+		<i class="fa-solid fa-plus fs-1"></i>
+	<% end %>
+<% end %>

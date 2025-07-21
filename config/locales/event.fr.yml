@@ -1,0 +1,24 @@
+fr:
+  activerecord:
+    models:
+      event: "Evénement"
+    attributes:
+      event:
+        name: "Nom"
+        date: "Date"
+        user: "Créateur"
+  event:
+    name_placeholder: "Nom de de l'événement(ex. Anniversaire Emma)"
+    date_placeholder: "Date de l'événement"
+    save: "Enregistrer de l'événement"
+    add_a_new_event: "🎉Une nouvelle occasion arrive ?"
+    create:
+      success: "Evénement créé avec succès !"
+      failure: "Échec de la création de l'événement."
+    edit:
+      success: "Evénement mise à jour avec succès !"
+      failure: "Échec de la mise à jour de l'événement."
+    destroy:
+      confirm_delete: "Êtes-vous sûr de vouloir supprimer cet événement ?"
+      success: "Evénement supprimé avec succès !"
+      failure: "Échec de la suppression de l'événement."

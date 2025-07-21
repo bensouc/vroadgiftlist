@@ -30,7 +30,7 @@
   color: white;
   /* Cette ligne nécessitera une variable ou une valeur de couleur spécifique en CSS */
   padding: 10px 15px;
-  background-color: red;
+  background-color: rgb(248, 160, 160);
   /* Cette ligne nécessitera une variable ou une valeur de couleur spécifique en CSS */
   animation: appear-then-fade 3s both;
   border-radius: 10px;

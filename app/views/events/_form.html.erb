@@ -1,0 +1,11 @@
+<%= simple_form_for event, html: { novalidate: false } do |f| %>
+	<div class="d-flex justify-content-between w-100 flex-wrap">
+		<%= f.input :name, required: true, label: false, wrapper_html: { class: "w-100" }, input_html: { placeholder:
+      t("event.name_placeholder") } %>
+		<%= f.input :date, as: :string, required: true, label: false, wrapper_html: { class: "w-100 mt-3" }, input_html: {
+        placeholder: t("event.date_placeholder"), type: "date" , class: "form-control" } %>
+	</div>
+	<%= button_tag type: :submit, class: "btn btn-success w-100 fw-bold fs-3 mt-5" do %>
+		<%= t("event.save") %>
+	<% end %>
+<% end %>

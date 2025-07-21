@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white  fixed-top vw-100 ">
+<nav class="navbar navbar-expand-lg navbar-light  text-white  fixed-top vw-100 " style="background-color: #ff5c70;">
 	<div class="container-fluid">
 		<% if user_signed_in? %>
 			<%= cl_image_tag current_user.avatar.key, width:50, class:'rounded-circle' %>
 		<% end %>
-			<a class="navbar-brand text-white ms-md-3" href="<%= root_path %>"><%= I18n.t('application.title') %></a>
+		<a class="navbar-brand text-white ms-md-3 nav-title" href="<%= root_path %>"><%= I18n.t('application.title').capitalize %></a>
 		<button class="navbar-toggler rounded-pill bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon border-white"></span>
 		</button>
@@ -13,7 +13,10 @@
 					<a class="nav-link active text-white" aria-current="page" href="<%= root_path %>"><%= I18n.t('navigation.home') %></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-white" href="<%= wishlists_path %>"><%= I18n.t('navigation.wishlists') %></a>
+					<a class="nav-link text-white" href="<%= events_path %>"><%= I18n.t('navigation.events') %></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="<%= gifts_path %>"><%= I18n.t('navigation.gifts') %></a>
 				</li>
 				<% if user_signed_in? %>
 					<li class="nav-item">
@@ -21,7 +24,7 @@
 					</li>
 				<% else %>
 					<li class="nav-item">
-            <%= link_to 'Connexion', new_user_session_path, class:'nav-link text-white' %>
+						<%= link_to 'Connexion', new_user_session_path, class:'nav-link text-white' %>
 					</li>
 				<% end %>
 			</ul>

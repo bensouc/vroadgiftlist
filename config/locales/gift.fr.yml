@@ -1,0 +1,43 @@
+fr:
+  gift:
+    name: "Nom du cadeau"
+    price: "Prix"
+    purchased: "Offert"
+    not_purchased: "Pas encore offert"
+    add_a_new_gift: "✨Une idée en tête ?"
+    name_placeholder: "Nom du cadeau"
+    price_placeholder: "15,00€"
+    url_label: "Ajouter un lien vers le site Web du cadeau"
+    url_placeholder: "https://example.com/cadeau"
+    add_photo: "Ajouter une photo"
+    save_gift: "Ajouter à vos envies"
+    category_prompt: "Catégorie"
+    index:
+      title: "Liste de cadeaux"
+      description: "Sélectionnez un cadeau à offrir"
+      purchased_gifts: "Cadeaux déjà offerts"
+      not_purchased_gifts: "Cadeaux non offerts"
+      no_gifts: "Aucun cadeau trouvé"
+    tags:
+      tech: "Technologie"
+      blu_ray_4k: "Blu-ray 4K"
+      blu_ray: "Blu-ray"
+      dvd: "DVD"
+      books: "Livres"
+      comics: "Bandes dessinées"
+      video_games: "Jeux vidéo"
+      fashion: "Mode"
+      hobbies: "Loisirs"
+      home: "Maison"
+      beauty: "Beauté"
+      music: "Musique"
+      sports: "Sport"
+      travel: "Voyage"
+      experience: "Expérience"
+      food: "Gastronomie"
+      decor: "Décoration"
+  activerecord:
+    attributes:
+      gift:
+        name: "Nom du cadeau"
+        price: "Prix"

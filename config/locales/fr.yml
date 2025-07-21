@@ -1,8 +1,12 @@
 fr:
   application:
-    title: "Partage un voeu"
+    title: "partage"
+    description: "Créez et partagez vos listes de souhaits avec vos amis et votre famille."
     tagline: "Marre des doublons et des cadeaux ratés ?"
-    description: "Avec GiftCrew, crée ta liste de souhaits, partage-la avec tes proches, et laisse-les choisir ce qu’ils veulent t’offrir — sans se marcher dessus, même s’ils préparent une surprise à Noël et ton anniversaire."
+    description: "Avec <strong>Partage</strong>, crée ta <strong>liste de souhaits</strong>, partage-la avec tes <strong>proches</strong>, et laisse-les choisir ce qu’ils veulent t’offrir — sans se marcher dessus, même s’ils préparent une surprise à <strong>Noël</strong> et ton <strong>anniversaire</strong>."
+    link: "Lien"
+    share: "Partager"
+    search: "Rechercher"
   errors:
     messages:
       blank: "ne peut pas être vide"
@@ -11,12 +15,25 @@ fr:
       too_short: "doit contenir au moins %{count} caractères"
       too_long: "ne peut pas dépasser %{count} caractères"
       not_a_number: "doit être un nombre"
+  date:
+    formats:
+      default: "%d-%b-%Y"   # ex: 09-juin-2025
+      short: "%d %b"        # ex: 09 juin
+      long: "%d %B %Y"      # ex: 09 juin 2025
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, janv, févr, mars, avril, mai, juin, juil, août, sept, oct, nov, déc]
+
+    order: [day, month, year]
   navigation:
     home: "Accueil"
     gifts: "Cadeaux"
     gift: "Cadeau"
-    wishlists: "Listes de souhaits"
-    new_wishlist: "Nouvelle liste de souhaits"
+    events: "Évenements"
+    gifts: "Cadeaux"
+    event: "Événement"
+    new_event: "Nouvel événement"
     new_gift: "Nouveau cadeau"
     edit_gift: "Modifier le cadeau"
     login: "Connexion"
@@ -28,21 +45,3 @@ fr:
     contact: "Contact"
     privacy_policy: "Politique de confidentialité"
     terms_of_service: "Conditions d'utilisation"
-  gift:
-    name: "Nom du cadeau"
-    price: "Prix"
-    purchased: "Offert"
-    not_purchased: "Pas encore offert"
-    add_a_new_gift: ""
-    name_placeholder: "Entrez le nom du cadeau"
-    price_placeholder: "15,00€"
-    url_label: "Lien vers site web du cadeau"
-    url_placeholder: "https://example.com/cadeau"
-    add_photo: "Ajouter une photo"
-    save_gift: "Ajouter à votre liste"
-    index:
-      title: "Liste de cadeaux"
-      description: "Sélectionnez un cadeau à offrir"
-      purchased_gifts: "Cadeaux déjà offerts"
-      not_purchased_gifts: "Cadeaux non offerts"
-      no_gifts: "Aucun cadeau trouvé"
