@@ -12,12 +12,13 @@ url("<%=gift.photo_url%>")'>
 				<p class="price">🪙 <%= gift.price_to_s%> €</p>
 			</div>
 			<div class="badges">
-				<p class="badge badge-<%= gift.received? ? 'success' : 'default' %> w-fit"
+				<p class="badge badge-<%= gift.received? ? 'default' : 'success' %> w-fit"
         style="width: fit-content;">
 					<%= gift.received? ? "🎉#{(I18n.t 'gift.purchased')}" : "🤞#{(I18n.t 'gift.not_purchased')}"%>
 				</p>
 				<a href="#" target="_blank" class="text-white shop-url"><%= I18n.t('application.link')%> <i class='fa fa-link'></i></a>
 			</div>
+      <%= render 'gift_events', gift: gift %>
 		</div>
 	</div>
 <% end %>

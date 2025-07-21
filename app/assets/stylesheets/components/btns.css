@@ -13,3 +13,12 @@
     align-items: center;
     text-decoration: none !important;
 }
+.destroy-btn{
+  position: relative;
+    top: 3px;
+    right: -99%;
+    height: 0;
+    display: block;
+    width: 0;
+    z-index: 2;
+}

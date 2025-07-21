@@ -1,5 +1,4 @@
 <%= simple_form_for gift, html: { novalidate: false } do |f| %>
-	<%= f.input :wishlist_id, as: :hidden, input_html: { value: wishlist.id } %>
 	<div class="d-flex justify-content-between w-100 flex-wrap">
 		<%= f.input :name, label: I18n.t("gift.name"), required: true,
     label: false,
@@ -7,9 +6,7 @@
       input_html: {
         placeholder: I18n.t("gift.name_placeholder")
     } %>
-		<%= f.input :tag, label: false, collection: Gift::TAGS.map { |tag|
-        [I18n.t("activerecord.attributes.gift.tags.#{tag}"), tag]
-      },
+		<%= f.input :tag, label: false, collection: Gift::TAGS.sort.map { |tag| [emoji_label(tag, position: :after), tag] },
       wrapper_html: { class: "flex-grow-1 me-2" },
       prompt: t("gift.category_prompt"),
       input_html: { class: "form-select" } %>
@@ -32,6 +29,16 @@
     accept: "image/*",
     capture: "environment"
   } %>
+	<% if @events %>
+		<p>Vous pouvez l'ajouter également à vos évènements</p>
+		<%= f.input :events, collection: @events,
+                  label: false,
+                  multiple: true,
+                  as: :check_boxes,
+                  label: false,
+                  prompt: t("gift.category_prompt"),
+                  input_html: { class: "form-select" } %>
+	<% end %>
 	<%= button_tag type: :submit, class: "btn btn-success w-100 fw-bold fs-3 mt-5" do %>
 		<%= I18n.t "gift.save_gift" %>
 	<% end %>

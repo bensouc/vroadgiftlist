@@ -7,8 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
+require "open-uri"
 puts "Cleaning up existing data..."
+Event.destroy_all
+Gift.destroy_all
+Guest.destroy_all
 User.destroy_all
 
 
@@ -19,8 +22,8 @@ user1.avatar.attach(io: avatar1, filename: "avatar1.png", content_type: "bmo_ava
 user1.save!
 
 puts "Creating Gifts"
-# get user wishlist
-wishlist = user1.wishlist
+# get user event
+event = user1.events
 # create a gift
 Gift.create!([
   {
@@ -38,11 +41,39 @@ Gift.create!([
     user: user1
   },
   {
-    name: "Carte cadeau Amazon",
+    name: "Carte cadeau Poàrtails Nantes",
     price: 50.0,
-    url: "https://amazon.fr/gift-card",
+    url: "https://www.librairieludiqueportails.fr/",
     received: false,
     user: user1
   }
 ])
-# create a wish to link the gift to the wishlist
+puts "Attaching photos to gifts..."
+  photo_url = "https://www.histoiredor.com/dw/image/v2/BCQS_PRD/on/demandware.static/-/Sites-THOM_CATALOG/default/dwe6284d31/images/70580155704-master_HO.jpg?sw=380&sh=380"
+  transformed_url = photo_url.sub('/upload/', '/upload/w_500/')
+  gift = Gift.find_by(name: "Montre connectée")
+  gift.photo.attach(
+    io: URI.open(transformed_url),
+    filename: "#{gift.name.downcase.gsub(' ', '_')}.jpg",
+    content_type: 'image/jpeg'
+  )
+  gift.save!
+  photo_url = "https://content.pearl.fr/media/cache/default/article_ultralarge_high_nocrop/shared/images/articles/T/TG2/casque-audio-sans-fil-tempo-ref_TG2842_3.jpg"
+  transformed_url = photo_url.sub('/upload/', '/upload/w_500/')
+  gift = Gift.find_by(name: "Casque audio")
+  gift.photo.attach(
+  io: URI.open(transformed_url),
+  filename: "#{gift.name.downcase.gsub(' ', '_')}.jpg",
+  content_type: 'image/jpeg'
+)
+  gift.save!
+  photo_url = "https://www.librairieludiqueportails.fr/uploads/images/logo_Logo_Portails_vaisseau.gif"
+  transformed_url = photo_url.sub('/upload/', '/upload/w_500/')
+  gift = Gift.last
+  gift.photo.attach(
+  io: URI.open(transformed_url),
+  filename: "#{gift.name.downcase.gsub(' ', '_')}.gif",
+  content_type: 'image/jpeg'
+)
+  gift.save!
+# create a wish to link the gift to the event

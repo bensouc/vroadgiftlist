@@ -1,0 +1,5 @@
+class CleanWishlistModel4 < ActiveRecord::Migration[8.0]
+  def change
+    add_reference :wishlists, :gift, null: false, foreign_key: true
+  end
+end

@@ -13,9 +13,14 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+  
 }
 
-.hero .tagline {}
+.hero .tagline {
+  color: #fff;
+  
+
+}
 
 .hero .description {
   text-align: justify;

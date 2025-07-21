@@ -1,11 +1,11 @@
 # Vroadgiftlist
 
-Vroadgiftlist est une application web pour organiser des événements de type Secret Santa ou Gifter. Elle permet à chaque utilisateur de créer une wishlist, d’inviter des amis dans des groupes, de créer des événements (Noël, anniversaire…), et de gérer la distribution des cadeaux de façon anonyme.
+Vroadgiftlist est une application web pour organiser des événements de type Secret Santa ou Gifter. Elle permet à chaque utilisateur de créer une event, d’inviter des amis dans des groupes, de créer des événements (Noël, anniversaire…), et de gérer la distribution des cadeaux de façon anonyme.
 
 ## Fonctionnalités
 
 - Création de groupes et d’événements (Noël, anniversaire…)
-- Wishlist personnelle pour chaque utilisateur
+- Event personnelle pour chaque utilisateur
 - Invitation d’amis dans un groupe ou un événement
 - Attribution secrète des cadeaux (Secret Santa)
 - Possibilité d’indiquer qu’on va offrir un cadeau, sans que le souhait soit visible par l’utilisateur concerné

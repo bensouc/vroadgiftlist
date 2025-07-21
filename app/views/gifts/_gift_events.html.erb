@@ -1,0 +1,9 @@
+<div class="gift-events">
+	<% unless  gift.events.empty? %>
+		<% gift.events.each do |event| %>
+			<%= link_to event_path(event), class: 'event-link badge bg-warning' do%>
+				<%= event.name %>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

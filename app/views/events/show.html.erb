@@ -1,0 +1,6 @@
+<div class="main">
+	<%= render @event %>
+	<%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: t('event.destroy.confirm_delete') }, class: "text-red" do %>
+		<i class="fa-solid fa-trash"></i>
+	<% end %>
+</div>

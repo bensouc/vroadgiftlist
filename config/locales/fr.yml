@@ -15,12 +15,25 @@ fr:
       too_short: "doit contenir au moins %{count} caractères"
       too_long: "ne peut pas dépasser %{count} caractères"
       not_a_number: "doit être un nombre"
+  date:
+    formats:
+      default: "%d-%b-%Y"   # ex: 09-juin-2025
+      short: "%d %b"        # ex: 09 juin
+      long: "%d %B %Y"      # ex: 09 juin 2025
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, janv, févr, mars, avril, mai, juin, juil, août, sept, oct, nov, déc]
+
+    order: [day, month, year]
   navigation:
     home: "Accueil"
     gifts: "Cadeaux"
     gift: "Cadeau"
-    wishlists: "Listes de souhaits"
-    new_wishlist: "Nouvelle liste de souhaits"
+    events: "Évenements"
+    gifts: "Cadeaux"
+    event: "Événement"
+    new_event: "Nouvel événement"
     new_gift: "Nouveau cadeau"
     edit_gift: "Modifier le cadeau"
     login: "Connexion"

@@ -1,0 +1,14 @@
+<div class="main px-3">
+	<div class='d-flex align-items-baseline w-100 justify-content-center fs-1 fw-bold gap-2 event-title'>
+		<h1 class="shop-url"><%= "🎁Vos évènements" %></h1>
+	</div>
+	<%= turbo_frame_tag :events do %>
+		<div class="container">
+			<% events.each do |event| %>
+				<%= link_to event_path(event), data: {turbo_frame: :_top} do %>
+					<%= render event %>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
