@@ -46,6 +46,13 @@ fr:
     privacy_policy: "Politique de confidentialité"
     terms_of_service: "Conditions d'utilisation"
   activerecord:
+    models:
+      event: "Evénement"
+    attributes:
+      event:
+        name: "Nom"
+        date: "Date"
+        user: "Créateur"
     errors:
       messages:
         record_invalid: "La validation a échoué : %{errors}"
