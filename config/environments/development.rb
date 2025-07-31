@@ -41,7 +41,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
   # configure the host to generate a full URL helpers
-  Rails.application.routes.default_url_options[:host] = 'http://localhost:3000'
+  config.routes.default_url_options[:host] = 'http://localhost:3000'
 
 
   # Print deprecation notices to the Rails logger.

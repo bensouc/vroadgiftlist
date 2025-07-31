@@ -7,5 +7,12 @@
 			<i class="fa-solid fa-calendar-days ms-1"></i>
 			<%= l(event.date)%>
 		</div>
+    <div data-controller="sharing-link"
+         data-sharing-link-url-value="<%= invite_url(event) %>"
+         data-sharing-link-title-value="Pour rejoindre <%= event.name %>"
+         data-action="click->sharing-link#sharing">
+      <i class="fa-solid fa-share-nodes"></i>
+    </div>
+    <p>Organisé par: <%= event.organized_by(current_user) %></p>
 	</div>
 <% end %>

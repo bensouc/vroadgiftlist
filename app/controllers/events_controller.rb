@@ -1,10 +1,12 @@
 class EventsController < ApplicationController
   before_action :store_user_location!, only: [:join]
   before_action :authenticate_user!
-  before_action :set_event, only: [ :show, :join ]
+  before_action :set_event, only: [ :show]
+  before_action :set_event_by_token, only: [ :join]
   before_action :set_gifts, only: [ :show ]
+  before_action :set_participants, only: [ :show ]
   def index
-    @events = current_user.all_events
+    @events = current_user.all_events.includes(:organizer)
     @gifts = current_user.gifts.includes(:wishes)
   end
 
@@ -53,7 +55,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def set_event_by_token
+    @event = Event.find_by(invite_token: params[:invite_token])
+  end
+
   def set_gifts
     @gifts = @event.gifts
+  end
+  def set_participants
+    @participants = @event.participants
   end
 end
