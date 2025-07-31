@@ -1,6 +1,15 @@
+
 <div class="main">
 	<%= render @event %>
-	<%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: t('event.destroy.confirm_delete') }, class: "text-red" do %>
-		<i class="fa-solid fa-trash"></i>
-	<% end %>
+	<div class=" container">
+		<h2>Participants</h2>
+		<ul>
+			<% @participants.each do |participant| %>
+				<li><%= participant.user_name %> </li>
+			<% end %>
+		</ul>
+		<%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: t('event.destroy.confirm_delete') }, class: "text-red" do %>
+			<i class="fa-solid fa-trash"></i>
+		<% end %>
+	</div>
 </div>

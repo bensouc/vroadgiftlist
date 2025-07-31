@@ -6,17 +6,18 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
-
+  resources :events, param: :invite_token, only: [] do
+  member do
+    get :join  # GET /events/:id/join
+  end
+  end
   resources :events, only: [ :index, :show, :new, :create, :destroy ] do
-    member do
-      get :join   # GET /events/:id/join
-    end
     resources :gifts, only: [ :new, :create ]
   end
   resources :users, only: [] do
     resources :gifts, only: [ :index ]
   end
-  resources :gifts, only: [:index, :show, :edit, :update, :destroy, :new, :create ]
+  resources :gifts, only: [ :index, :show, :edit, :update, :destroy, :new, :create ]
   resources :gift_wishlists, only: [ :create, :destroy ], path: "wishlists"
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
