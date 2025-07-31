@@ -1,0 +1,10 @@
+<div class="gift-events">
+	<% unless  @user.events.empty? %>
+		<% @user.events.each do |event| %>
+				<%= link_to gift_wishlists_path(gift_id: @gift.id, event_id: event.id),
+        class:"event-link badge bg-warning", data: {turbo_method: :post} do%>
+					<%= event.name %> <i class="fa-solid fa-plus"></i>
+				<% end %>
+		<% end %>
+	<% end %>
+</div>

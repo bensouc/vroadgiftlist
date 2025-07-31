@@ -1,8 +1,9 @@
 class GiftsController < ApplicationController
   before_action :set_event, only: [ :new, :create ]
-
+  before_action :find_user, ony: [:index]
   def index
-    @gifts = current_user.gifts
+    @gifts = @user.gifts.includes(:photo_attachment)
+
   end
   def new
     @gift = Gift.new
@@ -33,5 +34,9 @@ class GiftsController < ApplicationController
 
   def gift_params
     params.require(:gift).permit(:name, :price, :url, :photo, :tag)
+  end
+
+  def find_user
+    @user = params[:user_id].nil? ? current_user : User.find(params[:user_id])
   end
 end

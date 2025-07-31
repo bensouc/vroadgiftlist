@@ -12,6 +12,7 @@ class Gift < ApplicationRecord
   has_one_attached :photo
   # Validations
   validates :name, presence: true
+  validates :user, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_blank: true
   validates :url, format: { with: URI.regexp(%w[http https]), message: "must be a valid URL" }, allow_blank: true
 

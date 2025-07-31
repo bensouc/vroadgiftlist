@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [ :show ]
   def index
-    @events = current_user.events
+    @events = current_user.all_events
     @gifts = current_user.gifts.includes(:wishes)
   end
 
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params.require(:event).permit(:name, :date))
-    @event.user = current_user
+    @event.organizer = current_user
     if @event.save
       redirect_to events_path, notice: I18n.t("events.create.success", name: @event.name)
     else
@@ -27,8 +27,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_path, notice: I18n.t("events.destroy.success", name: @event.name) }
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@event) }
+    end
   end
-end
+
 
   private
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_12_153644) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_31_075443) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -61,11 +61,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_12_153644) do
   end
 
   create_table "guests", force: :cascade do |t|
-    t.integer "wishlist_id", null: false
+    t.integer "wishlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "event_id"
-    t.integer "user_id"
+    t.integer "event_id", null: false
+    t.integer "user_id", null: false
     t.index ["event_id"], name: "index_guests_on_event_id"
     t.index ["user_id"], name: "index_guests_on_user_id"
     t.index ["wishlist_id"], name: "index_guests_on_wishlist_id"
@@ -101,6 +101,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_12_153644) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "users"
   add_foreign_key "gifts", "users"
+  add_foreign_key "guests", "events"
   add_foreign_key "guests", "users"
   add_foreign_key "guests", "wishlists"
   add_foreign_key "wishlists", "events"

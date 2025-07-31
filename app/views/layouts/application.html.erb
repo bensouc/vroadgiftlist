@@ -22,7 +22,7 @@
 	</head>
 	<body>
 		<%= render "shared/flashes" %>
-		<%= render "shared/navbar" unless controller_name == "pages" && action_name =='home' %>
+		<%= render "shared/navbar" unless controller_name == "pages" && action_name =='home' ||  !user_signed_in? %>
 
   		<%= yield %>
 
