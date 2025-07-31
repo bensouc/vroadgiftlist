@@ -1,7 +1,7 @@
 class GiftsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [ :new, :create ]
-  before_action :find_user, ony: [:index]
+  before_action :find_user, only: [:index]
   def index
     @gifts = @user.gifts.includes(:photo_attachment)
 
