@@ -18,7 +18,8 @@ url("<%=gift.photo_url%>")'>
 				</p>
 				<a href="#" target="_blank" class="text-white shop-url"><%= I18n.t('application.link')%> <i class='fa fa-link'></i></a>
 			</div>
-      <%= render 'gift_events', gift: gift %>
+      <%= render(GiftEventBtnComponent.new(user: , gift: ,current_user:))%>
+
 		</div>
 	</div>
 <% end %>

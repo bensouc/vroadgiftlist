@@ -21,9 +21,14 @@ avatar1 = Rails.root.join("app/assets/images/avatars/bmo_avatar.png").open
 user1.avatar.attach(io: avatar1, filename: "avatar1.png", content_type: "bmo_avatar/png")
 user1.save!
 
+user2 = User.create!(email: "monna@mail.com", password: "password",  user_name: "Monna")
+avatar2 = Rails.root.join("app/assets/images/avatars/avatar_kate.png").open
+user2.avatar.attach(io: avatar2, filename: "avatar2.png", content_type: "monna_avatar/png")
+user2.save!
+
 puts "Creating Gifts"
 # get user event
-event = user1.events
+# event = user1.events
 # create a gift
 Gift.create!([
   {
@@ -31,21 +36,21 @@ Gift.create!([
     price: 199.99,
     url: "https://example.com/montre-connectee",
     received: false,
-    user: user1
+    user: user2
   },
   {
     name: "Casque audio",
     price: 89.50,
     url: "https://example.com/casque-audio",
     received: true,
-    user: user1
+    user: user2
   },
   {
-    name: "Carte cadeau Poàrtails Nantes",
+    name: "Carte cadeau Portails Nantes",
     price: 50.0,
     url: "https://www.librairieludiqueportails.fr/",
     received: false,
-    user: user1
+    user: user2
   }
 ])
 puts "Attaching photos to gifts..."

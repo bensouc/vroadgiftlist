@@ -36,6 +36,7 @@ fr:
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous allez recevoir un lien de réinitialisation par e-mail."
       updated: "Votre mot de passe a été édité avec succès, vous êtes maintenant connecté."
       updated_not_active: "Votre mot de passe a été changé avec succès."
+      forgotten: "Mot de passe oublié ?"
     registrations:
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
       signed_up: "Bienvenue, vous êtes connecté."
@@ -46,6 +47,8 @@ fr:
       updated: "Votre compte a été modifié avec succès."
       updated_but_not_signed_in: "Votre compte a été modifié avec succès. Merci de vous reconnecter."
     sessions:
+      new:
+        submit: "Se connecter"
       signed_in: "Connecté."
       signed_out: "Déconnecté."
       already_signed_out: "Déconnecté."
@@ -63,3 +66,14 @@ fr:
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+  shared:
+    links:
+      sign_in: "Se connecter"
+      sign_up: "Créer un compte"
+      forgot_your_password: "Mot de passe oublié ?"
+  helpers:
+    label:
+      user:
+        email: "Adresse e-mail"
+        password: "Mot de passe"
+        remember_me: "Se souvenir de moi"

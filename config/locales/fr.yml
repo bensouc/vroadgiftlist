@@ -31,7 +31,7 @@ fr:
     gifts: "Cadeaux"
     gift: "Cadeau"
     events: "Évenements"
-    gifts: "Cadeaux"
+    gifts: "Souhaits"
     event: "Événement"
     new_event: "Nouvel événement"
     new_gift: "Nouveau cadeau"
@@ -45,3 +45,7 @@ fr:
     contact: "Contact"
     privacy_policy: "Politique de confidentialité"
     terms_of_service: "Conditions d'utilisation"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "La validation a échoué : %{errors}"

@@ -16,7 +16,9 @@
 					<a class="nav-link text-white" href="<%= events_path %>"><%= I18n.t('navigation.events') %></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-white" href="<%= gifts_path %>"><%= I18n.t('navigation.gifts') %></a>
+					<a class="nav-link text-white" href="<%= user_gifts_path(current_user)%>">
+						<%= I18n.t('navigation.gifts') %>
+					</a>
 				</li>
 				<% if user_signed_in? %>
 					<li class="nav-item">
