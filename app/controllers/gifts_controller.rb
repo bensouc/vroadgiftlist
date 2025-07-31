@@ -1,4 +1,5 @@
 class GiftsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [ :new, :create ]
   before_action :find_user, ony: [:index]
   def index

@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :events, only: [ :index, :show, :new, :create, :destroy ] do
+    member do
+      get :join   # GET /events/:id/join
+    end
     resources :gifts, only: [ :new, :create ]
   end
   resources :users, only: [] do
     resources :gifts, only: [ :index ]
-end
+  end
   resources :gifts, only: [:index, :show, :edit, :update, :destroy, :new, :create ]
   resources :gift_wishlists, only: [ :create, :destroy ], path: "wishlists"
 

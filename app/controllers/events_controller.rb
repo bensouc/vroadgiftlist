@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [ :show ]
+  before_action :store_user_location!, only: [:join]
+  before_action :authenticate_user!
+  before_action :set_event, only: [ :show, :join ]
+  before_action :set_gifts, only: [ :show ]
   def index
     @events = current_user.all_events
     @gifts = current_user.gifts.includes(:wishes)
@@ -9,6 +12,19 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+  end
+
+  def join
+    # Si utilisateur déjà participant, on peut rediriger ou informer
+    if @event.guests.exists?(user_id: current_user.id)
+      redirect_to @event, notice: I18n.t("event.join.already_joined")
+      return
+    end
+
+    # Ajout du participant
+    @event.add_participant(current_user)
+
+    redirect_to @event, notice: I18n.t("event.join.success")
   end
 
   def create
@@ -35,6 +51,9 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def set_gifts
     @gifts = @event.gifts
   end
 end

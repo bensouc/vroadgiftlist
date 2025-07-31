@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   # validations
   validates :user_name, presence: true
+    validates :phone_number, format: {
+    with: /\A\+?\d{10,15}\z/,
+    message: "doit être un numéro valide (10 à 15 chiffres, optionnellement avec +)"
+  }, allow_blank: true
 
 
   def all_events # return all linked events attended and organized
