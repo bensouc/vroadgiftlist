@@ -8,7 +8,7 @@ class GiftsController < ApplicationController
   end
   def new
     @gift = Gift.new
-    @events = current_user.events
+    @events = current_user.all_events
   end
 
   def create
@@ -16,7 +16,7 @@ class GiftsController < ApplicationController
     @gift.user = current_user
     @event_ids = params[:gift][:events][1..-1] unless params[:gift][:events].blank?
     if @gift.save
-      @gift.link_to_event(@event_ids)
+      @gift.link_to_events(@event_ids)
       redirect_to gifts_path, notice: "Gift was successfully created."
     else
       render :new, status: :unprocessable_entity

@@ -38,9 +38,9 @@ class Gift < ApplicationRecord
 ].freeze
 
   # Instance methods
-  def link_to_event(event)
+  def link_to_events(events)
     # Create a new wish that links this gift to the specified event
-    wishes.create(event: event, gift: self)
+    events.each {|id| Wishlist.create(event_id: id, gift: self)}
   end
 
   def price_to_s
