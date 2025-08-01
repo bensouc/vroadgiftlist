@@ -31,9 +31,9 @@ class WishlistsController < ApplicationController
 
   def set_wishlists
     # event_user_wishlists GET    /events/:event_id/users/:user_id/wishlists(.:format) wishlists#index
-    @event = Event.includes(:guests).find(params[:event_id])
+    @event = Event.find(params[:event_id])
     @user = User.find(params[:user_id])
-    @wishlists = Wishlist.includes(:gift).where(gifts: { user: @user }, event: @event)
+    @wishlists = Wishlist.includes(:user, [ gift: :user ], [ gift: :photo_attachment ], :guest).where(gifts: { user: @user }, event: @event)
     @guest = @event.guests.find_by(user: current_user)
   end
 end
