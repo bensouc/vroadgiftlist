@@ -38,9 +38,9 @@ class Gift < ApplicationRecord
 ].freeze
 
   # Instance methods
-  def link_to_event(event)
+  def link_to_events(events)
     # Create a new wish that links this gift to the specified event
-    wishes.create(event: event, gift: self)
+    events.each {|id| Wishlist.create(event_id: id, gift: self)}
   end
 
   def price_to_s
@@ -48,14 +48,6 @@ class Gift < ApplicationRecord
       price.to_s
     else
       "??"
-    end
-  end
-
-  def photo_url
-    if photo.attached?
-      Rails.application.routes.url_helpers.rails_blob_url(photo, only_path: false)
-    else
-      ActionController::Base.helpers.image_path("defaults/no_photo.jpg")
     end
   end
 end

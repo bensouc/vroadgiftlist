@@ -11,7 +11,11 @@ class Event < ApplicationRecord
   def participants
     # Returns a list of users who have been added to this event via wishes table
     # return an empty array if there are no guests, or if the guests are not present
-    User.where(id: guest_users.pluck(:id) + [organizer.id]).distinct
+    guest_users
+  end
+
+  def guest(user)
+    find_by(guests)
   end
 
   def add_participant(user)

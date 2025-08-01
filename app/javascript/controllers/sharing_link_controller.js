@@ -7,7 +7,7 @@ export default class extends Controller {
     title: String
   }
   connect() {
-    console.log(this.urlValue, this.titleValue)
+    // console.log(this.urlValue, this.titleValue)
   }
 
   async sharing(){

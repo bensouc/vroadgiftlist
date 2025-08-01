@@ -13,3 +13,7 @@ a{
 h1, h2, h3{
   color:var(--text-muted)
 }
+
+.pointer{
+  cursor: pointer;
+}

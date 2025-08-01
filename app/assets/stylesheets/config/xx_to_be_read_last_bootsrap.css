@@ -1,0 +1,28 @@
+:root {
+  /* Surcharge des couleurs de base de Bootstrap */
+  --bs-primary: var(--primary);
+  --bs-secondary: var(--secondary);
+  --bs-success: var(--success);
+  --bs-info: var(--info);
+  --bs-warning: var(--warning);
+  --bs-danger: var(--danger);
+  --bs-light: var(--light);
+  --bs-dark: var(--dark);
+
+  /* Surcharge des versions RGB (utilisées pour l'opacité, ex: bg-primary-50) */
+  --bs-primary-rgb: 255, 92, 112;
+  --bs-secondary-rgb: 248, 104, 121;
+  --bs-success-rgb: 185, 213, 84;
+  --bs-info-rgb: 123, 171, 165;
+  --bs-warning-rgb: 255, 209, 102;
+  --bs-danger-rgb: 230, 57, 70;
+  --bs-light-rgb: 255, 255, 255;
+  --bs-dark-rgb: 34, 34, 34;
+
+  /* Surcharge des couleurs de texte */
+  --bs-body-color: var(--text-main);
+  --bs-body-bg: var(--bg-main);
+
+  /* Surcharge des bordures */
+  --bs-border-radius: var(--border-radius);
+}

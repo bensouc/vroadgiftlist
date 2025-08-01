@@ -1,84 +1,197 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 require "open-uri"
+
 puts "Cleaning up existing data..."
-Event.destroy_all
-Gift.destroy_all
+Wishlist.destroy_all
 Guest.destroy_all
+Gift.destroy_all
+Event.destroy_all
 User.destroy_all
 
-
 puts "Creating users..."
-user1= User.create!(email: "ben@mail.com", password: "password",  user_name: "Bensouc")
-avatar1 = Rails.root.join("app/assets/images/avatars/bmo_avatar.png").open
-user1.avatar.attach(io: avatar1, filename: "avatar1.png", content_type: "bmo_avatar/png")
-user1.save!
 
-user2 = User.create!(email: "monna@mail.com", password: "password",  user_name: "Monna")
-avatar2 = Rails.root.join("app/assets/images/avatars/avatar_kate.png").open
-user2.avatar.attach(io: avatar2, filename: "avatar2.png", content_type: "monna_avatar/png")
-user2.save!
+# User 1
+user1 = User.create!(
+  email: "ben@mail.com",
+  password: "secret",
+  first_name: "ben",
+  last_name: "Martin",
+  user_name: "Ben",
+  phone_number: "0123456789"
+)
 
-puts "Creating Gifts"
-# get user event
-# event = user1.events
-# create a gift
-Gift.create!([
-  {
-    name: "Montre connectée",
-    price: 199.99,
-    url: "https://example.com/montre-connectee",
+# Attacher avatar pour user1
+avatar_url = Faker::Avatar.image(slug: "alice", size: "150x150")
+user1.avatar.attach(
+  io: URI.open(avatar_url),
+  filename: "alice_avatar.jpg",
+  content_type: 'image/jpeg'
+)
+
+# User 2
+user2 = User.create!(
+  email: "bob@mail.com",
+  password: "secret",
+  first_name: "Bob",
+  last_name: "Dupont",
+  user_name: "bob_d",
+  phone_number: "0987654321"
+)
+
+# Attacher avatar pour user2
+avatar_url = Faker::Avatar.image(slug: "bob", size: "150x150")
+user2.avatar.attach(
+  io: URI.open(avatar_url),
+  filename: "bob_avatar.jpg",
+  content_type: 'image/jpeg'
+)
+
+# User 3 (nouveau)
+user3 = User.create!(
+  email: "charlie@mail.com",
+  password: "secret",
+  first_name: "Charlie",
+  last_name: "Durand",
+  user_name: "charlie_d",
+  phone_number: "0147258369"
+)
+
+# Attacher avatar pour user3
+avatar_url = Faker::Avatar.image(slug: "charlie", size: "150x150")
+user3.avatar.attach(
+  io: URI.open(avatar_url),
+  filename: "charlie_avatar.jpg",
+  content_type: 'image/jpeg'
+)
+
+# User 4 (nouveau)
+user4 = User.create!(
+  email: "diane@mail.com",
+  password: "secret",
+  first_name: "Diane",
+  last_name: "Moreau",
+  user_name: "diane_m",
+  phone_number: "0369258147"
+)
+
+# Attacher avatar pour user4
+avatar_url = Faker::Avatar.image(slug: "diane", size: "150x150")
+user4.avatar.attach(
+  io: URI.open(avatar_url),
+  filename: "diane_avatar.jpg",
+  content_type: 'image/jpeg'
+)
+
+puts "Creating Christmas event..."
+
+christmas_event = Event.create!(
+  name: "Noël 2025",
+  date: Date.new(2025, 12, 25),
+  organizer: user1
+)
+
+puts "Adding participants to Christmas event..."
+
+# Tous les users participent à l'événement
+[user1, user2, user3, user4].each do |user|
+  christmas_event.add_participant(user)
+end
+
+puts "Creating gifts with Faker..."
+
+# Cadeaux pour user1
+5.times do |i|
+  gift = Gift.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10.0..200.0),
+    url: Faker::Internet.url,
     received: false,
-    user: user2
-  },
-  {
-    name: "Casque audio",
-    price: 89.50,
-    url: "https://example.com/casque-audio",
-    received: true,
-    user: user2
-  },
-  {
-    name: "Carte cadeau Portails Nantes",
-    price: 50.0,
-    url: "https://www.librairieludiqueportails.fr/",
-    received: false,
-    user: user2
-  }
-])
-puts "Attaching photos to gifts..."
-  photo_url = "https://www.histoiredor.com/dw/image/v2/BCQS_PRD/on/demandware.static/-/Sites-THOM_CATALOG/default/dwe6284d31/images/70580155704-master_HO.jpg?sw=380&sh=380"
-  transformed_url = photo_url.sub('/upload/', '/upload/w_500/')
-  gift = Gift.find_by(name: "Montre connectée")
+    user: user1,
+    tag: Gift::TAGS.sample
+  )
+
+  # Attacher image pour le cadeau
+  image_url = "https://picsum.photos/300/300"
   gift.photo.attach(
-    io: URI.open(transformed_url),
-    filename: "#{gift.name.downcase.gsub(' ', '_')}.jpg",
+    io: URI.open(image_url),
+    filename: "gift_#{gift.id}.jpg",
     content_type: 'image/jpeg'
   )
-  gift.save!
-  photo_url = "https://content.pearl.fr/media/cache/default/article_ultralarge_high_nocrop/shared/images/articles/T/TG2/casque-audio-sans-fil-tempo-ref_TG2842_3.jpg"
-  transformed_url = photo_url.sub('/upload/', '/upload/w_500/')
-  gift = Gift.find_by(name: "Casque audio")
+end
+
+# Cadeaux pour user2
+5.times do |i|
+  gift = Gift.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 15.0..150.0),
+    url: Faker::Internet.url,
+    received: false,
+    user: user2,
+    tag: Gift::TAGS.sample
+  )
+
+  # Attacher image pour le cadeau
+  image_url = "https://picsum.photos/300/300"
   gift.photo.attach(
-  io: URI.open(transformed_url),
-  filename: "#{gift.name.downcase.gsub(' ', '_')}.jpg",
-  content_type: 'image/jpeg'
-)
-  gift.save!
-  photo_url = "https://www.librairieludiqueportails.fr/uploads/images/logo_Logo_Portails_vaisseau.gif"
-  transformed_url = photo_url.sub('/upload/', '/upload/w_500/')
-  gift = Gift.last
+    io: URI.open(image_url),
+    filename: "gift_#{gift.id}.jpg",
+    content_type: 'image/jpeg'
+  )
+end
+
+# Cadeaux pour user3
+4.times do |i|
+  gift = Gift.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 20.0..100.0),
+    url: Faker::Internet.url,
+    received: false,
+    user: user3,
+    tag: Gift::TAGS.sample
+  )
+
+  # Attacher image pour le cadeau
+  image_url = "https://picsum.photos/300/300"
   gift.photo.attach(
-  io: URI.open(transformed_url),
-  filename: "#{gift.name.downcase.gsub(' ', '_')}.gif",
-  content_type: 'image/jpeg'
-)
-  gift.save!
-# create a wish to link the gift to the event
+    io: URI.open(image_url),
+    filename: "gift_#{gift.id}.jpg",
+    content_type: 'image/jpeg'
+  )
+end
+
+# Cadeaux pour user4
+4.times do |i|
+  gift = Gift.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 25.0..180.0),
+    url: Faker::Internet.url,
+    received: false,
+    user: user4,
+    tag: Gift::TAGS.sample
+  )
+
+  # Attacher image pour le cadeau
+  image_url = "https://picsum.photos/300/300"
+  gift.photo.attach(
+    io: URI.open(image_url),
+    filename: "gift_#{gift.id}.jpg",
+    content_type: 'image/jpeg'
+  )
+end
+
+puts "Creating wishlists for Christmas event..."
+
+# Ajouter quelques cadeaux de chaque user à la wishlist de Noël
+Gift.all.sample(12).each do |gift|
+  Wishlist.create!(
+    gift: gift,
+    event: christmas_event
+  )
+end
+
+puts "Seed completed successfully!"
+puts "Created:"
+puts "- #{User.count} users"
+puts "- #{Event.count} event"
+puts "- #{Gift.count} gifts"
+puts "- #{Guest.count} participants"
+puts "- #{Wishlist.count} wishlist items"
