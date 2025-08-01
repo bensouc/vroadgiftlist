@@ -1,15 +1,16 @@
-
-<div class="main">
-	<%= render @event %>
-	<div class=" container">
-		<h2>Participants</h2>
-		<ul>
-			<% @participants.each do |participant| %>
-				<li><%= participant.user_name %> </li>
-			<% end %>
-		</ul>
-		<%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: t('event.destroy.confirm_delete') }, class: "text-red" do %>
-			<i class="fa-solid fa-trash"></i>
+<%= render @event %>
+<div class=" container">
+	<h2 class="text-center">Participants</h2>
+	<div class="participants">
+		<% @participants.each do |participant| %>
+    <div data-controller="toggle-content">
+			<h3 class='d-flex gap-1'><%= participant.user_name %> <div class="border bg-primary rounded-pill px-2 text-white pointer" style="width: fit-content;" data-action="click->toggle-content#toggleContent">Voir</div></h3>
+			<%= turbo_frame_tag participant, src: event_user_wishlists_path(@event,participant),loading: :lazy, data:{toggle_content_target:"content"},class:"d-none" %>
+    </div>
 		<% end %>
 	</div>
+</div>
+<%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: t('event.destroy.confirm_delete') }, class: "text-red" do %>
+	<i class="fa-solid fa-trash"></i>
+<% end %>
 </div>

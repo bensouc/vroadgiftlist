@@ -1,0 +1,6 @@
+<div class="gift-events">
+	<%= link_to wishlist_path(@wishlist, user_id: @user.id),
+        class:"event-link badge bg-warning", data: {turbo_method: :patch} do%>
+		Offrir
+	<% end %>
+</div>

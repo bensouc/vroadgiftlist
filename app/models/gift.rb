@@ -50,12 +50,4 @@ class Gift < ApplicationRecord
       "??"
     end
   end
-
-  def photo_url
-    if photo.attached?
-      Rails.application.routes.url_helpers.rails_blob_url(photo, only_path: false)
-    else
-      ActionController::Base.helpers.image_path("defaults/no_photo.jpg")
-    end
-  end
 end

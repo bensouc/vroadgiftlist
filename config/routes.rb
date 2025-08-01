@@ -13,13 +13,16 @@ Rails.application.routes.draw do
   end
   resources :events, only: [ :index, :show, :new, :create, :destroy ] do
     resources :gifts, only: [ :new, :create ]
+    resources :users, only: [] do
+      resources :wishlists, only: [:index]
+    end
   end
   resources :users, only: [] do
     resources :gifts, only: [ :index ]
   end
   resources :gifts, only: [ :index, :show, :edit, :update, :destroy, :new, :create ]
   resources :gift_wishlists, only: [ :create, :destroy ], path: "wishlists"
-
+  resources :wishlists, only: [:update]
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

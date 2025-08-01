@@ -2,6 +2,7 @@
 	<div class="container-fluid">
 		<% if user_signed_in? %>
 			<%= user_avatar_image(current_user, width: 50, height:50, css_class: "rounded-circle") %>
+      <%= current_user.user_name %>
 		<% end %>
 		<a class="navbar-brand text-white ms-md-3 nav-title" href="<%= root_path %>"><%= I18n.t('application.title').capitalize %></a>
 		<button class="navbar-toggler rounded-pill bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

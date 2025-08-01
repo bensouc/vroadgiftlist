@@ -1,7 +1,7 @@
 <%= turbo_frame_tag gift do%>
 	<div class="card gift-card mb-4 overflow-hidden
 " style='background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
-url("<%=gift.photo_url%>")'>
+url("<%=gift_image_url(gift)%>")'>
 		<%= link_to  "#", class:'offer-link' do %>
 			<i class="fa-solid fa-gift"></i>
 		<% end %>
@@ -18,7 +18,7 @@ url("<%=gift.photo_url%>")'>
 				</p>
 				<a href="#" target="_blank" class="text-white shop-url"><%= I18n.t('application.link')%> <i class='fa fa-link'></i></a>
 			</div>
-      <%= render(GiftEventBtnComponent.new(user: , gift: ,current_user:))%>
+       <%#= render(GiftEventBtnComponent.new(user: , gift: ,current_user:, event:, guest:))%>
 
 		</div>
 	</div>

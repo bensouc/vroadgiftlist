@@ -4,6 +4,9 @@ module EventsHelper
   end
 
   def default_host
-    Rails.application.routes.default_url_options[:host] || "localhost:3000"
+  options = Rails.application.config.action_mailer.default_url_options
+  host = options[:host]
+  port = options[:port]
+  "http://#{host}:#{port}"
   end
 end
